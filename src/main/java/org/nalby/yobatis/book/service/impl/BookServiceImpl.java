@@ -48,10 +48,12 @@ public class BookServiceImpl implements BookService {
 		for (Author author: authors) {
 			ids.add(author.getId());
 		}
+		// -> where name = '#{name}'
 		BookCriteria criteria = BookCriteria.nameEqualTo(name);
 		if (!ids.isEmpty()) {
+			// -> where name = '#{name}' or (author in (#{id1}, #{id2}))
 			criteria.or()
-			.andNameEqualTo(name);
+			.andAuthorIn(ids);
 		}
 		return bookMapper.selectByCriteria(criteria);
 	}

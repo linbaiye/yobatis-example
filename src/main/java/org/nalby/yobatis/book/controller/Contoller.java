@@ -21,7 +21,7 @@ public class Contoller {
 	
 	@Autowired
 	private BookService bookService;
-	
+
 	@RequestMapping(value = "/list", method = RequestMethod.GET, produces = "application/json")
 	public Response<Book> listBooks() {
 		return Response.ok(bookService.getById(1L));
@@ -36,7 +36,7 @@ public class Contoller {
 	public Response<List<Book>> getByNameOrAuthor(
 			@PathVariable(value = "bookName") String bookName,
 			@PathVariable(value = "authorName") String authorName) {
-		logger.info("name:{}, name:{}, name:{}, name:{}.", bookName, bookName, authorName, authorName);
+		logger.info("name:{}, name:{}, name:{}, name:{}, name:{}.", bookName, bookName, authorName, authorName, "test");
 		return Response.ok(bookService.nameEqualOrAuthorIs(bookName, authorName));
 	}
 }
