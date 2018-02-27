@@ -31,7 +31,7 @@ public class Contoller {
 	@RequestMapping(value = "/{bookName}/{authorName}", method = RequestMethod.GET, produces = "application/json")
 	public Response<List<Book>> getByNameOrAuthor(
 			@PathVariable(value = "bookName") String bookName,
-			@PathVariable(value = "authorName") String authorName) {
-		return Response.ok(bookService.nameEqualOrAuthorIs(bookName, authorName));
+			@PathVariable(value = "authorName") long autoherId) {
+		return Response.ok(bookService.nameEqualOrAuthorIs(bookName, autoherId));
 	}
 }

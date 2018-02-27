@@ -10,6 +10,6 @@ public interface BookService {
 	
 	Book getByName(String name);
 
-	List<Book> nameEqualOrAuthorIs(String name, String author);
+	List<Book> nameEqualOrAuthorIs(String name, long authorId);
 
 }
